@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список студентов</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!-- Этап 1. Создайте верстку элементов, которые будут статичны (неизменны).  -->
+    <section class="main pb-4">
+        <div class="container">
+            <h1>Студенты</h1>
+            <p>поле с пометкой <span class="requiredStar font-weight-bold"></span>обязательно должно быть заполнено</p>
+
+            <form action="" class="mb-5 _clear" id="addStudent">
+                <div class="mb-3">
+                    <label for="input-surname" class="font-weight-bold text-monospace requiredStar">Введите фамилию студента</label>
+                    <input type="text" name="input-surname" id="input-surname" class="form-control" placeholder="Фамилия" autocomplete="off" required>
+                </div>
+                <div class="mb-3">
+                    <label for="input-name" class="font-weight-bold text-monospace requiredStar">Введите имя студента</label>
+                    <input type="text" name="input-name" id="input-name" class="form-control" placeholder="Имя" autocomplete="off" required>
+                </div>
+                <div class="mb-3">
+                    <label for="input-lastname" class="font-weight-bold text-monospace requiredStar">Введите отчество студента</label>
+                    <input type="text" name="input-lastname" id="input-lastname" class="form-control" placeholder="Отчество" autocomplete="off" required>
+                </div>
+                <div class="mb-3">
+                    <label for="input-studyStart" class="font-weight-bold text-monospace requiredStar">Укажите год начала обучения (от 2000 до текущего года)</label>
+                    <input type="number" name="input-studyStart" id="input-studyStart" min="2000" class="form-control" placeholder="Введите год" autocomplete="off" required>
+                </div>
+                <div class="mb-3">
+                    <label for="input-birthDay" class="font-weight-bold text-monospace requiredStar">Укажите дату рождения студента</label>
+                    <input type="date" name="input-birthDay" id="input-birthDay" class="form-control" placeholder="Дата рождения" autocomplete="off" required min="1900-01-01">
+                </div>
+                <div class="mb-3">
+                    <label for="input-faculty" class="font-weight-bold text-monospace requiredStar">Введите факультет студента</label>
+                    <input type="text" name="input-faculty" id="input-faculty" class="form-control" placeholder="Факультет" autocomplete="off" required>
+                </div>
+                <button id="btn-add" class="btn btn-primary cursor">Добавить</button>
+            </form>
+
+            <div class="d-flex mb-3 align-items-lg-start">
+                <p class="font-weight-bold mr-2">Фильтрация по нескольким параметрам:</p>
+                <button id="show-filter" class="btn_show-filter">показать</button>
+            </div>
+
+            <form action="" id="filter-form" class="mb-4 hidden">
+                <div class="row">
+                    <div class="col-lg-2 col-6 mb-2">
+                        <input type="text" name="" id="filter-fioVal" class="form-control form-control-sm" placeholder="ФИО">
+                    </div>
+                    <div class="col-lg-2 col-6">
+                        <input type="text" name="" id="filter-birthDateVal" class="form-control form-control-sm" placeholder="Дата рождения">
+                    </div>
+                    <div class="col-lg-2 col-6 mb-2">
+                        <input type="text" name="" id="filter-yearLearnVal" class="form-control form-control-sm" placeholder="Год обучения">
+                    </div>
+                    <div class="col-lg-2 col-6">
+                        <input type="text" name="" id="filter-facultyVal" class="form-control form-control-sm" placeholder="Факультет">
+                    </div>
+                    <div class="col-lg-4 col-12" id="filter-box_btn">
+                        <button type="submit" id="btn-filter" class="btn btn-sm btn-primary">Фильтровать</button>
+                        <button type="button" id="clearAll" class="btn btn-sm btn-danger">Очистить все</button>
+                        <button type="button" id="undoAll" class="btn btn-sm btn-warning">Отмена фильтров</button>
+                    </div>
+                </div>
+            </form>
+
+            <table class="table table-striped studentsTable">
+                <thead>
+                    <th data-column="fio">ФИО</th>
+                    <th data-column="birthday">Дата рождения</th>
+                    <th data-column="studyStart">Годы обучения</th>
+                    <th data-column="faculty">Факультет</th>
+                </thead>
+                <tbody id="students-list">
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <script defer type="module" src="./js/main.js"></script>
+</body>
+
+</html>
